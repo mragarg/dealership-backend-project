@@ -37,21 +37,18 @@ app.get('/login', (req, res) => {
 
 // GET Cars -------------------------------------------- NEED TO USE DATA BASE VALUES HERE SOMEHOW --------------------------------------------
 app.get('/car', async (req, res) => {
+
     const carsSale = await Car.getAll();
-    // console.log(carsSale);
-    carsSale.forEach((car) => {
-        console.log("TEST");
-        console.log(car.year);
-    });
+
+    console.log(carsSale);
+    console.log(Car.displayCars(carsSale));
     
+    const string = Car.displayCars(carsSale);
+
 
     res.render('car', {locals:
         {
-            year: carsSale[1].year,
-            make: carsSale[1].make,
-            model: carsSale[1].model,
-            mileage: carsSale[1].mileage,
-            price: carsSale[1].price
+            carVals: Car.displayCars(carsSale)
         }
     });
 
