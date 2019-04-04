@@ -11,5 +11,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "express-es6-template-engine": "^2.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
