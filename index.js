@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 
 // GET Login
 app.get('/login', (req, res) => {
-    res.send('Login Page');
+    res.render('login-page');
 });
 
 // GET Cars
@@ -62,6 +62,10 @@ app.get('/car/add', (req, res) => {
 app.post('/car/add', async (req, res) => {
     await Car.addCar(req.body.carYear, req.body.carMake, req.body.carModel, req.body.carMileage, req.body.carPrice);
     res.redirect('/car');
+});
+
+app.get('/car/delete', (req, res) => {
+    res.send("Delete Page");
 });
 
 // APP LISTEN
