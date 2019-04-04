@@ -37,7 +37,9 @@ app.get('/login', (req, res) => {
 });
 
 // GET Cars
-app.get('/car', (req, res) => {
+app.get('/car', async (req, res) => {
+    const carsSale = await Car.getAll();
+    console.log(carsSale);
     res.render('car');
 });
 
