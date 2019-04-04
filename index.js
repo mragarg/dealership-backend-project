@@ -12,10 +12,9 @@ const querystring = require('querystring');
 app.use(express.urlencoded({extended: true}));
 
 
-const hostname = '127.0.0.1';
 const PORT = 3000;
 
-// Import Model Class here --------------------------------------------
+// Import Model Class here 
 const User = require('./models/user');
 const Car = require('./models/car');
 const SoldCar = require('./models/soldcar');
@@ -36,11 +35,28 @@ app.get('/login', (req, res) => {
     res.send('Login Page');
 });
 
-// GET Cars
+// GET Cars -------------------------------------------- NEED TO USE DATA BASE VALUES HERE SOMEHOW --------------------------------------------
 app.get('/car', async (req, res) => {
     const carsSale = await Car.getAll();
-    console.log(carsSale);
-    res.render('car');
+    // console.log(carsSale);
+    carsSale.forEach((car) => {
+        console.log("TEST");
+        console.log(car.year);
+    });
+    
+
+    res.render('car', {locals:
+        {
+            year: carsSale[1].year,
+            make: carsSale[1].make,
+            model: carsSale[1].model,
+            mileage: carsSale[1].mileage,
+            price: carsSale[1].price
+        }
+    });
+
+
+
 });
 
 // APP LISTEN
