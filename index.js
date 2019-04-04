@@ -57,12 +57,11 @@ app.get('/car/add', (req, res) => {
     res.render('car-add');
 });
 
-app.post('/car/add', (req, res) => {
-    console.log(req.body.carYear);
-    console.log(req.body.carMake);
-    console.log(req.body.carModel);
-    console.log(req.body.carMileage);
-    console.log(req.body.carPrice);
+// POST (add) Car to DataBase
+// ADD LINKS TO REDIRECT OR SUCCESSFUL MESSAGE
+app.post('/car/add', async (req, res) => {
+    await Car.addCar(req.body.carYear, req.body.carMake, req.body.carModel, req.body.carMileage, req.body.carPrice);
+    res.send("Vehicle Added");
 });
 
 // APP LISTEN

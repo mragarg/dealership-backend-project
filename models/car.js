@@ -23,7 +23,8 @@ class Car { // Car Model Class
         arrayOfCars.forEach((car) => {
             tableValues += `
             <tr>
-                <th scope="row">${car.year}</th>
+                <th scope="row" class="text-center">${car.id}</th>
+                <td>${car.year}</td>
                 <td>${car.make}</td>
                 <td>${car.model}</td>
                 <td>${car.mileage}</td>
@@ -37,7 +38,16 @@ class Car { // Car Model Class
 
     }
 
-    
+    static addCar(year, make, model, mileage, price) {
+        console.log(`Added ${year} ${make} ${model} with ${mileage} miles for $${price}`);
+        
+        db.none(`
+        insert into cars
+            (year, make, model, price, mileage)
+        values
+            (${year}, '${make}', '${model}', ${price}, ${mileage})
+        `)
+    }
 
 }
 
