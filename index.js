@@ -35,25 +35,21 @@ app.get('/login', (req, res) => {
     res.send('Login Page');
 });
 
-// GET Cars -------------------------------------------- NEED TO USE DATA BASE VALUES HERE SOMEHOW --------------------------------------------
+// GET Cars
 app.get('/car', async (req, res) => {
-
+    // Puts all the Cars for Sale into an array
     const carsSale = await Car.getAll();
 
-    console.log(carsSale);
-    console.log(Car.displayCars(carsSale));
-    
-    const string = Car.displayCars(carsSale);
+    // console.log(carsSale);
+    // console.log(Car.displayCars(carsSale));
 
-
+    // Renders the car.html page
     res.render('car', {locals:
         {
-            carVals: Car.displayCars(carsSale)
+            carVals: Car.displayCars(carsSale) // Puts the values of cars for sale into a table
         }
     });
-
-
-
+    
 });
 
 // APP LISTEN

@@ -8,9 +8,7 @@ class Car { // Car Model Class
     }
 
     static displayCars(arrayOfCars){
-        // Obtain Table to Add Values to
-        // let table = document.getElementById('car-values');
-        // Empty String to add HTML to
+
         let tableValues = ``;
 
         arrayOfCars.forEach((car) => {
@@ -25,13 +23,12 @@ class Car { // Car Model Class
             `
         });
 
-        console.log(tableValues);
+        // console.log(tableValues);
         return tableValues;
-        // table.innerHTML = tableValues;
-
 
     }
 
+    
 }
 
 module.exports = Car; // Exports the class
