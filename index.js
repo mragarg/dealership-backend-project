@@ -57,6 +57,14 @@ app.get('/car/add', (req, res) => {
     res.render('car-add');
 });
 
+app.post('/car/add', (req, res) => {
+    console.log(req.body.carYear);
+    console.log(req.body.carMake);
+    console.log(req.body.carModel);
+    console.log(req.body.carMileage);
+    console.log(req.body.carPrice);
+});
+
 // APP LISTEN
 app.listen(PORT, () => {
     console.log(`Server is running on Port: ${PORT}.`);
