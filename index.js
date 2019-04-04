@@ -61,7 +61,7 @@ app.get('/car/add', (req, res) => {
 // ADD LINKS TO REDIRECT OR SUCCESSFUL MESSAGE
 app.post('/car/add', async (req, res) => {
     await Car.addCar(req.body.carYear, req.body.carMake, req.body.carModel, req.body.carMileage, req.body.carPrice);
-    res.send("Vehicle Added");
+    res.redirect('/car');
 });
 
 // APP LISTEN
