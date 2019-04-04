@@ -36,6 +36,10 @@ app.get('/login', (req, res) => {
     res.send('Login Page');
 });
 
+// GET Cars
+app.get('/car', (req, res) => {
+    res.render('car');
+});
 
 // APP LISTEN
 app.listen(PORT, () => {
