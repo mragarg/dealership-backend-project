@@ -16,7 +16,8 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
-    "express-es6-template-engine": "^2.1.7"
+    "express-es6-template-engine": "^2.1.7",
+    "pg-promise": "^8.6.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.10"
