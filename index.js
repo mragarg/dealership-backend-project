@@ -49,7 +49,12 @@ app.get('/car', async (req, res) => {
             carVals: Car.displayCars(carsSale) // Puts the values of cars for sale into a table
         }
     });
-    
+
+});
+
+// GET Cars/Add
+app.get('/car/add', (req, res) => {
+    res.render('car-add');
 });
 
 // APP LISTEN
