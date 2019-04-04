@@ -26,9 +26,14 @@ app.engine('html', es6Renderer); // Introduction
 app.set('view engine', 'html'); // Express use its view engine that speaks html
 app.set('views', 'views'); // Express where to find view files (views directory)
 
-// When going to the main page, it will take them to Welcome
+// GET Home
 app.get('/', (req, res) => {
     res.render('index');
+});
+
+// GET Login
+app.get('/login', (req, res) => {
+    res.send('Login Page');
 });
 
 
