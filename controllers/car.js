@@ -19,9 +19,27 @@ async function addCarDB(req, res) {
     res.redirect('/car');
 }
 
+async function deleteCarPage(req, res) {
+    const allCars = await Car.getAll();
+    res.render('car-delete', {
+        locals:
+            {
+                options: Car.displayID(allCars)
+            }
+    });
+}
+
+function deleteCarDB(req, res) {
+    console.log(req.body.selectDelete);
+    Car.deleteCar(req.body.selectDelete);
+    console.log('Deleted');
+    res.redirect('/car');
+}
 
 module.exports = {
     showAllCars,
     addCarPage,
-    addCarDB
+    addCarDB,
+    deleteCarPage,
+    deleteCarDB
 };

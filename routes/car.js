@@ -5,7 +5,9 @@ const carRoutes = Router();
 const {
     showAllCars,
     addCarPage,
-    addCarDB
+    addCarDB,
+    deleteCarPage,
+    deleteCarDB
 } = require('../controllers/car');
 
 
@@ -15,6 +17,8 @@ carRoutes.get('/add', addCarPage);
 
 carRoutes.post('/add', addCarDB);
 
-// carRoutes.post('/delete');
+carRoutes.get('/delete', deleteCarPage);
+
+carRoutes.post('/delete', deleteCarDB);
 
 module.exports = carRoutes;

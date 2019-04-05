@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- BootStrap -->    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Delete Car</title>
+</head>
+<body class="bg-dark">
+    <h1 class="text-center my-2 text-white py-3">Delete Vehicle</h1>
+    <form 
+        action="/car/delete"
+        method="POST"
+    >
+        <div class="input-group px-5">
+            <select class="custom-select" name="selectDelete" id="inventoryID" aria-label="Select Inventory ID from Dropdown">
+                <option selected>Choose Inventory ID</option>
+                ${options}
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-outline-danger" type="submit">Delete</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

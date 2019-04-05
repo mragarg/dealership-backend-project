@@ -40,13 +40,37 @@ class Car { // Car Model Class
 
     static addCar(year, make, model, mileage, price) {
         console.log(`Added ${year} ${make} ${model} with ${mileage} miles for $${price}`);
-        
+
         db.none(`
         insert into cars
             (year, make, model, price, mileage)
         values
             (${year}, '${make}', '${model}', ${price}, ${mileage})
-        `)
+        `);
+    }
+
+    static displayID(arrayOfCars) {
+        const length = arrayOfCars.length;
+        let optionsHTML = ``;
+        let count = 1;
+
+        while(count <= length) {
+            optionsHTML += `
+            <option value="${count}" name="idNum">${count}</option>
+            `;
+            count++;
+        }
+
+        return optionsHTML;
+    }
+
+    static deleteCar(id) {
+        console.log(`Deleted Car with Invetory ID: ${id}`);
+
+        db.none(`
+        delete from cars
+        where id=${id}
+        `);
     }
 
 }
