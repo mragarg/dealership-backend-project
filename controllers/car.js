@@ -1,4 +1,6 @@
 const Car = require('../models/car');
+const express = require('express');
+
 
 async function showAllCars(req, res) {
     const carSales = await Car.getAll();
@@ -8,19 +10,20 @@ async function showAllCars(req, res) {
                 carVals: Car.displayCars(carSales)
             }
         });
-}
-
-function addCarPage(req, res) {
-    res.render('car-add');
-}
-
-async function addCarDB(req, res) {
-    await Car.addCar(req.body.carYear, req.body.carMake, req.body.carModel, req.body.carMileage, req.body.carPrice);
-    res.redirect('/car');
-}
-
-async function deleteCarPage(req, res) {
-    const allCars = await Car.getAll();
+    }
+    
+    function addCarPage(req, res) {
+        res.render('car-add');
+    }
+    
+    async function addCarDB(req, res) {
+        await Car.addCar(req.body.carYear, req.body.carMake, req.body.carModel, req.body.carMileage, req.body.carPrice);
+        showAllCars(req, res);
+        // res.location('/car');
+    }
+    
+    async function deleteCarPage(req, res) {
+        const allCars = await Car.getAll();
     res.render('car-delete', {
         locals:
             {

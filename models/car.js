@@ -54,12 +54,18 @@ class Car { // Car Model Class
         let optionsHTML = ``;
         let count = 1;
 
-        while(count <= length) {
+        arrayOfCars.forEach((car) => {
             optionsHTML += `
-            <option value="${count}" name="idNum">${count}</option>
+            <option value="${car.id}" name="idNum">${car.id}</option>
             `;
-            count++;
-        }
+        });
+
+        // while(count <= length) {
+        //     optionsHTML += `
+        //     <option value="${count}" name="idNum">${count}</option>
+        //     `;
+        //     count++;
+        // }
 
         return optionsHTML;
     }

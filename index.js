@@ -8,6 +8,7 @@ const SoldCar = require('./models/soldcar');
 
 // Routers
 const carRouter = require('./routes/car');
+const userRouter = require('./routes/user');
 
 
 const app = express();
@@ -32,13 +33,11 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
-// GET Login
-app.get('/login', (req, res) => {
-    res.render('login-page');
-});
-
 // Car Router
 app.use('/car', carRouter);
+
+// User Router
+app.use('/user', userRouter);
 
 
 // APP LISTEN
