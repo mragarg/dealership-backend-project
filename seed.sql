@@ -1,10 +1,10 @@
 insert into users
     (first_name, last_name, email, password)
 values
-    ('AdminFirstTest', 'AdminLastTest', 'admin@test.com', 'admin'), -- admin
-    ('Lightning', 'McQueen', 'kachow@mcqueen.com', '95McQueen'), -- 95McQueen
-    ('Dominic', 'Toretto', 'kachow@mcqueen.com', '2Fast4U'), -- 2Fast4U
-    ('Ricky', 'Bobby', 'first@ricky.bobby', 'aintLast') -- aintLast
+    ('AdminFirstTest', 'AdminLastTest', 'admin@test.com', '$2a$10$EFnriFosFJ0L/hTGDgR1M.hxUtuSFZG9OmOXoXS/3tG.iEMp//YsG'), -- admin
+    ('Lightning', 'McQueen', 'kachow@mcqueen.com', '$2a$10$wIrUc9y7dyS38GuZpoueK.NxeSnm3lPj074gK0Gm4EqimNntgPCpi'), -- 95McQueen
+    ('Dominic', 'Toretto', 'family_first@toretto.com', '$2a$10$ptfZcq1WfxwQnY54jGSupOKu8Sj/UvkrLKNqWs4.9cAuDg8jWLxQW'), -- 2Fast4U
+    ('Ricky', 'Bobby', 'first@ricky.bobby', '$2a$10$pheAXD5wxXT3AXcmf2YFvuwPS0WwXCYfhMCu3IAd08jWvNeucTzDu') -- aintLast
 ;
 
 insert into cars

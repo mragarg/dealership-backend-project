@@ -11,4 +11,12 @@ userRoutes.get('/login', getLoginPage);
 
 userRoutes.post('/login', attemptLogin);
 
+userRoutes.get('/admindash', (req, res) => {
+    res.send("Admin Dash");
+});
+
+userRoutes.get('/dash', (req, res) => {
+    res.send("Regular Person Dash");
+});
+
 module.exports = userRoutes;

@@ -24,6 +24,10 @@ class User {
             });
     }
 
+    checkPassword(password) {
+        return bcrypt.compareSync(password, this.password);
+    }
+
 }
 
 module.exports = User;

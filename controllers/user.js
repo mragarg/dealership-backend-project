@@ -13,8 +13,26 @@ async function attemptLogin(req, res) {
     console.log(req.body.password);
 
     const theUser = await User.getByEmail(req.body.email);
-    // const passwordIsCorrect = theUser.checkPassword(req.body.password);
+    const passwordIsCorrect = theUser.checkPassword(req.body.password);
+
+    if(passwordIsCorrect) {
+        if(req.body.email === "admin@test.com") {
+            res.redirect('/user/admindash');
+        }
+        else {
+            res.redirect('/user/dash');
+        }
+    }
+    else {
+        res.render('login-page', {
+            locals: {
+                email: req.body.email
+            }
+        })
+    }
+
     console.log(theUser);
+    console.log(passwordIsCorrect);
 }
 
 module.exports = {
