@@ -4,19 +4,17 @@ const userRoutes = Router();
 
 const {
     getLoginPage,
-    attemptLogin
+    attemptLogin,
+    getAdminDash,
+    getDash
 } = require('../controllers/user');
 
 userRoutes.get('/login', getLoginPage);
 
 userRoutes.post('/login', attemptLogin);
 
-userRoutes.get('/admindash', (req, res) => {
-    res.send("Admin Dash");
-});
+userRoutes.get('/admindash', getAdminDash);
 
-userRoutes.get('/dash', (req, res) => {
-    res.send("Regular Person Dash");
-});
+userRoutes.get('/dash', getDash);
 
 module.exports = userRoutes;

@@ -9,8 +9,6 @@ function getLoginPage(req, res) {
 }
 
 async function attemptLogin(req, res) {
-    console.log(req.body.email);
-    console.log(req.body.password);
 
     const theUser = await User.getByEmail(req.body.email);
     const passwordIsCorrect = theUser.checkPassword(req.body.password);
@@ -31,11 +29,19 @@ async function attemptLogin(req, res) {
         })
     }
 
-    console.log(theUser);
-    console.log(passwordIsCorrect);
+}
+
+function getAdminDash(req, res) {
+    res.render('admin-dash');
+}
+
+function getDash(req, res) {
+    res.render('dashboard');
 }
 
 module.exports = {
     getLoginPage,
-    attemptLogin
+    attemptLogin,
+    getAdminDash,
+    getDash
 };
