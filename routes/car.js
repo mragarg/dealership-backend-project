@@ -10,6 +10,10 @@ const {
     deleteCarDB
 } = require('../controllers/car');
 
+const {
+    showSold
+} = require('../controllers/soldcar')
+
 
 carRoutes.get('/', showAllCars);
 
@@ -20,5 +24,7 @@ carRoutes.post('/add', addCarDB);
 carRoutes.get('/delete', deleteCarPage);
 
 carRoutes.post('/delete', deleteCarDB);
+
+carRoutes.get('/sold', showSold)
 
 module.exports = carRoutes;
