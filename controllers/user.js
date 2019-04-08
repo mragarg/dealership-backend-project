@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const escapeHtml = require('../utils');
 
 function getLoginPage(req, res) {
     res.render('login-page', {
@@ -10,8 +11,12 @@ function getLoginPage(req, res) {
 
 async function attemptLogin(req, res) {
 
-    const theUser = await User.getByEmail(req.body.email);
-    const passwordIsCorrect = theUser.checkPassword(req.body.password);
+    const theEmail = escapeHtml(req.body.email);
+    const thePassword = escapeHtml(req.body.password);
+
+
+    const theUser = await User.getByEmail(theEmail);
+    const passwordIsCorrect = theUser.checkPassword(thePassword);
 
     if(passwordIsCorrect) {
         if(req.body.email === "admin@test.com") {
