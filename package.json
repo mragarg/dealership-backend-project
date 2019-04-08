@@ -8,7 +8,7 @@
     "db:create": "createdb car-dealer-app",
     "db:init": "psql -f schema.sql car-dealer-app && psql -f seed.sql car-dealer-app",
     "db:destroy": "dropdb car-dealer-app",
-    "db:reset": "npm run db:destroy; npm run db:create %% npm run db:init",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
