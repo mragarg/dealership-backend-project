@@ -12,7 +12,7 @@ const userRouter = require('./routes/user');
 
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 const http = require('http');
 const querystring = require('querystring');
 
